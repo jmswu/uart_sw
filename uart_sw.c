@@ -33,7 +33,7 @@ void UartSW_task(void) {
         case 7:
         case 8: // bit 8
             UART_SW_TX_PIN = uart_buf.data & 0x01U;
-            uart_buf.data = uart_buf.data >> 1U;
+            uart_buf.data = (uint8_t)(uart_buf.data >> 1U);
             break;
         case 9: // stop bit
             UART_SW_TX_PIN = IO_HIGH;
@@ -53,6 +53,6 @@ void UartSW_putc(uint8_t data){
     uart_buf.isEmpty = 0;
 }
 
-uint8_t UartWS_isEmpty(void){
+uint8_t UartSW_isReady(void){
     return (uint8_t)uart_buf.isEmpty;
 }

@@ -24,14 +24,14 @@ extern "C" {
     /* setup the stuff for software uart */
     void UartSW_init(void);
     
-    /* a task to run in timer interrupt to clock out uart data */
+    /* a task to run in timer interrupt to clock out UART data */
     void UartSW_task(void);
     
     /* send one byte */
     void UartSW_putc(uint8_t);
     
     /* get buffer state */
-    uint8_t UartWS_isEmpty(void);
+    uint8_t UartSW_isReady(void);
 
 
 #ifdef	__cplusplus
