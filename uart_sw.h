@@ -25,7 +25,7 @@ extern "C" {
     void UartSW_init(void);
     
     /* a task to run in timer interrupt to clock out UART data */
-    void UartSW_task(void);
+    inline void UartSW_task(void);
     
     /* send one byte */
     void UartSW_putc(uint8_t);

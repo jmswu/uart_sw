@@ -13,7 +13,7 @@ void UartSW_init(void) {
     delay_ms(1U);   // this need to longer than one bit time for the data rate
 }
 
-void UartSW_task(void) {
+inline void UartSW_task(void) {
     static uint8_t sm = 0U;
 
     /* don't do anything is nothing in the buffer */
