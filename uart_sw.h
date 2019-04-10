@@ -14,7 +14,11 @@ extern "C" {
 
 #include <stdint.h>
     
-#define UART_SW_TX_PIN  UART_SW
+    /* define the physical pin to use as TX */
+#warning "Replace the TX pin on your board"
+#define UART_SW_TX_PIN      UART_SW
+#define UART_SW_PIN_HIGH    IO_HIGH
+#define UART_SW_PIN_LOW     IO_LOW
     
     typedef struct{
         uint8_t data;

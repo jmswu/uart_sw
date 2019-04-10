@@ -9,7 +9,7 @@ void UartSW_init(void) {
     uart_buf.data = 0U;
     uart_buf.isEmpty = 1U;
 
-    UART_SW_TX_PIN = IO_HIGH;
+    UART_SW_TX_PIN = UART_SW_PIN_HIGH;
     delay_ms(1U);   // this need to longer than one bit time for the data rate
 }
 
@@ -22,7 +22,7 @@ inline void UartSW_task(void) {
     /* clock out data */
     switch (sm) {
         case 0: // start bit
-            UART_SW_TX_PIN = IO_LOW;
+            UART_SW_TX_PIN = UART_SW_PIN_LOW;
             break;
         case 1: // bit 1
         case 2:
@@ -36,7 +36,7 @@ inline void UartSW_task(void) {
             uart_buf.data = (uint8_t)(uart_buf.data >> 1U);
             break;
         case 9: // stop bit
-            UART_SW_TX_PIN = IO_HIGH;
+            UART_SW_TX_PIN = UART_SW_PIN_HIGH;
             break;
     }
 
